@@ -8,17 +8,23 @@ export default function NewProject({ onAdd, onCancel }) {
 
   const title = useRef();
   const description = useRef();
+  const projectManager = useRef();
+  const startDate = useRef();
   const dueDate = useRef();
 
   function handleSave() {
     const enteredTitle = title.current.value;
     const enteredDescription = description.current.value;
     const enteredDueDate = dueDate.current.value;
+    const enteredStartDate = startDate.current.value;
+    const enteredProjectManager = projectManager.current.value;
 
     if (
       enteredTitle.trim() === '' ||
       enteredDescription.trim() === '' ||
-      enteredDueDate.trim() === ''
+      enteredDueDate.trim() === '' ||
+      enteredStartDate.trim() === '' ||
+      enteredProjectManager.trim() ===''
     ) {
       modal.current.open();
       return;
@@ -27,7 +33,9 @@ export default function NewProject({ onAdd, onCancel }) {
     onAdd({
       title: enteredTitle,
       description: enteredDescription,
+      projectManager: enteredProjectManager,
       dueDate: enteredDueDate,
+      startDate: enteredStartDate,
     });
   }
 
@@ -63,7 +71,9 @@ export default function NewProject({ onAdd, onCancel }) {
         </menu>
         <div>
           <Input type="text" ref={title} label="Title" />
+          <Input type="text" ref={projectManager} label="Project Manager" />
           <Input ref={description} label="Description" textarea />
+          <Input type="date" ref={startDate} label="Due Date" />
           <Input type="date" ref={dueDate} label="Due Date" />
         </div>
       </div>
