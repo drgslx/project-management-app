@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+main {
+    margin-top: 2rem/* 32px */;
+    margin-bottom: 2rem/* 32px */;
+    display: flex;
+    gap: 2rem;
+}
+
