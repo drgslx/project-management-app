@@ -1,11 +1,6 @@
-/**
- * A functional component for rendering an input or textarea with a label
- * @param {string} label - The label for the input
- * @param {boolean} textarea - A flag indicating whether to render a textarea instead of an input
- * @param {object} props - Additional props to be spread on the input or textarea element
- * @returns {JSX.Element} - The rendered input or textarea element with its label
- */
-export default function Input({ label, textarea, ...props }) {
+import { forwardRef } from "react";
+
+ const Input = forwardRef(function Input({ label, textarea, ...props }, ref) {
   // Define the classes for the input or textarea element
   const classes =
     'w-full p-1 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600';
@@ -17,10 +12,12 @@ export default function Input({ label, textarea, ...props }) {
         {label}
       </label>
       {textarea ? (
-        <textarea className={classes} {...props} />
+        <textarea ref={ref} className={classes} {...props} />
       ) : (
-        <input className={classes} {...props} />
+        <input ref={ref} className={classes} {...props} />
       )}
     </p>
   );
-}
+})
+
+export default Input
