@@ -20,7 +20,7 @@ const Modal = forwardRef(function Modal({ children, buttonCaption }, ref) {
       className="backdrop:bg-stone-900/90 p-6 rounded-md shadow-md"
     >
       {children}
-      <form method="dialog" className="mt-3 text-right">
+      <form method="dialog" className="mt-2 text-right">
         <Button>{buttonCaption}</Button>
       </form>
     </dialog>,
